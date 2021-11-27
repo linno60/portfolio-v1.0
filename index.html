@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>Lin Liu</title>
+</head>
+
+<body>
+    <div id="Index">
+    <header>
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark" style="background-color: #000000;">
+            <a class="navbar-brand" href="#Home">LinWebsite</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="#Home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#About">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#Contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <script>
+            $('.navbar-nav>li>a').on('click', function(){
+            $('.navbar-collapse').collapse('hide');
+            });
+          </script>
+    </header>
+
+    <div id="Home">
+        <div id="HomeDiv">
+            <p>Hi</p>
+            <p>I'm Lin</p>
+            <p>Working to become a great front-end developer</p>
+            <p>I enjoy <span id="text"></span><span id="cursor"></span></p>
+        </div>
+        <script>
+
+            // List of sentences
+            var _CONTENT = [ "Web Design", "League of Legends", "Hip Hop Music", "The Resistance: Avalon" ];
+            
+            // Current sentence being processed
+            var _PART = 0;
+            
+            // Character number of the current sentence being processed 
+            var _PART_INDEX = 0;
+            
+            // Holds the handle returned from setInterval
+            var _INTERVAL_VAL;
+            
+            // Element that holds the text
+            var _ELEMENT = document.querySelector("#text");
+            
+            // Implements typing effect
+            function Type() { 
+                var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+                _ELEMENT.innerHTML = text;
+                _PART_INDEX++;
+            
+                // If full sentence has been displayed then start to delete the sentence after some time
+                if(text === _CONTENT[_PART]) {
+                    clearInterval(_INTERVAL_VAL);
+                    setTimeout(function() {
+                        _INTERVAL_VAL = setInterval(Delete, 50);
+                    }, 1000);
+                }
+            }
+            
+            // Implements deleting effect
+            function Delete() {
+                var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+                _ELEMENT.innerHTML = text;
+                _PART_INDEX--;
+            
+                // If sentence has been deleted then start to display the next sentence
+                if(text === '') {
+                    clearInterval(_INTERVAL_VAL);
+            
+                    // If last sentence then display the first one, else move to the next
+                    if(_PART == (_CONTENT.length - 1))
+                        _PART = 0;
+                    else
+                        _PART++;
+                    _PART_INDEX = 0;
+            
+                    // Start to display the next sentence after some time
+                    setTimeout(function() {
+                        _INTERVAL_VAL = setInterval(Type, 100);
+                    }, 200);
+                }
+            }
+            
+            // Start the typing effect on load
+            _INTERVAL_VAL = setInterval(Type, 100);
+            
+            </script>
+        
+        </div>
+
+    <section id="About">
+        <h2>About Me</h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class= "col-md-4">
+                    <div id="AboutLeft">
+                        <p>Hello! My name is Lin and I like building things for the web. <br><br>
+                            I was born and grown up in China, then came to Canada for high school and university.<br><br>
+                            <!-- I hold a Bachelor's Degree in Computing Science from the Simon Fraser Universitiy.</br></br> -->
+                            I like good-looking, cool things. This is probably why I like front-end developing.
+                        </p>
+                    </div>                
+                </div>
+                <div class="col-md-4">
+                    <div id="AboutRight">
+                        <img src="https://media.istockphoto.com/vectors/female-silhoutte-avatar-default-avatar-profile-picture-photo-vector-id1062562338?b=1&k=20&m=1062562338&s=612x612&w=0&h=uK7Xmq4GPQJs6MFPjMCgImJuIKgskp1siIXJ2dWDRG0=" alt="Profile Picture">
+                    </div>
+                </div>
+            </div>
+        </div>
+            <h2 id="Skills">My Skills</h2>
+            <div id="AboutBottom">
+                    <div class="row" id="SkillSet">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/260px-HTML5_logo_and_wordmark.svg.png" alt="HTML" class="img-fluid col-4 col-sm-4 col-md-4 col-lg-2">
+                        <img src="https://www.freepnglogos.com/uploads/html5-logo-png/html5-logo-css-logo-png-transparent-svg-vector-bie-supply-9.png" alt="CSS" class="img-fluid col-4 col-sm-4 col-md-4 col-lg-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Javascript-shield.png" alt="JavaScript" class="img-fluid col-4 col-sm-4 col-md-4 col-lg-2">
+                        <img src="https://qacademy.ca/wp-content/uploads/2016/07/python-logo.png" alt="Python" class="img-fluid col-4 col-sm-4 col-md-4 col-lg-2">
+                        <img src="https://brandlogos.net/wp-content/uploads/2021/09/bootstrap-logo.png" alt="Bootstrap" class="img-fluid col-4 col-sm-4 col-md-4 col-lg-2">
+                        <img src="https://w7.pngwing.com/pngs/559/367/png-transparent-postgresql-object-relational-database-oracle-database-freebsd-icon-text-logo-head-thumbnail.png" alt="PostgreSQL" class="img-fluid col-4 col-sm-4 col-md-4 col-lg-2">
+                    </div>          
+                </div>      
+    </section>
+
+    <section id="Contact">
+        <h2>Get In Touch</h2>
+        <p>Career opportunities, new projects, freelance inquiry.</p>
+        <div id="ContactLink">
+            <a href="https://www.github.com/" target="_blank"><i class="fab fa-github fa-3x"></i></a>
+            <a href="https://www.linkedin.com/home/?originalSubdomain=ca" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+            <a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fab fa-instagram fa-3x"></i></a>           
+        </div>
+        <div id="EmailMe">
+            <form style="display: inline" action="mailto:abcd1234@gmail.com" method="get">
+                <button id="EmailButton">Email Me</button>
+            </form>
+        </div> 
+        <div id="Map">
+            <p>Or even a coffee.</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1588905.9493962438!2d-125.65186600944055!3d49.38480121269874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5462ce9005f9dfa5%3A0xce9c6c979ef4fca6!2sMetro%20Vancouver%2C%20BC!5e0!3m2!1sen!2sca!4v1637900492821!5m2!1sen!2sca" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div> 
+    </section>
+    </div>
+
+    <footer>
+        <p>© 2021 Designed & Built by Lin Liu</p>
+    </footer>
+</body>
+</html>

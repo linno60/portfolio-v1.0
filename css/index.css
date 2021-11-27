@@ -1,0 +1,221 @@
+
+
+#Home{
+    background-color: #000000;
+    padding-top: 70px;
+    height: 100vh;
+}
+
+#HomeDiv{
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#HomeDiv > p{
+    color: #ffffff;
+    font-size: xx-large;
+}
+
+#About{
+    padding-top: 70px;
+    min-height: 100vh;
+}
+
+h2{
+    padding-top: 15px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#Skills{
+    margin-top: 50px;
+}
+
+#AboutLeft{
+    margin-left: auto;
+    margin-top: 20px;
+} 
+
+#AboutLeft > p{
+    font-size: larger;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#AboutRight{
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+#AboutRight > img{
+    width: 65%;
+    height: auto;
+}
+
+#SkillSet{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#SkillSet > img{
+    margin-top: 15px;
+    width: 60%;
+    height:auto;
+}
+
+#Contact{
+    /* background-color: #daad86; */
+    padding-top: 70px;
+    height: 100vh;
+}
+
+#Contact > p{
+    text-align: center;
+    font-size: larger;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#ContactLink{
+    text-align: center;
+    margin-top: 3%;
+}
+
+#ContactLink > a{
+    margin-right: 25px;
+    color: #212429;
+}
+
+#EmailMe{
+    text-align: center;
+    margin-top: 2%;
+}
+
+#EmailButton{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #000000;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    background-color:#000000;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+#EmailButton:hover{
+    color:#000000;
+    background-color:#ffffff;
+    border:0.1em solid #000000;
+}
+
+#Map{
+    margin-top: 3%;
+    text-align: center;
+}
+
+#Map > p{
+    text-align: center;
+    font-size: larger;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#Index{
+    min-height: 100vh;
+    margin-bottom: 70px;
+}
+
+#Index:after{
+    content:"";
+    display:block;
+    height:70px;
+}
+
+footer{
+    text-align: center;
+}
+
+#container {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#text {
+	color: #ffffff;
+	letter-spacing: 2px;
+}
+
+#cursor {
+	display: inline-block;
+	vertical-align: middle;
+	width: 3px;
+	height: 40px;
+	background-color: #ffffff;
+	animation: blink .75s step-end infinite;
+}
+
+@keyframes blink {
+	from, to { 
+		background-color: transparent 
+	}
+	50% { 
+		background-color: #ffffff; 
+	}
+}
+
+#SkillSet > img:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+  
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+/* Small screen view */
+@media screen and (max-width: 767px) {
+    #AboutLeft{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+    #AboutRight{
+        text-align: center;
+    }
+    #AboutRight > img{
+        width: 45%;
+        height: auto;
+    }
+    #About{
+        padding-top: 70px;
+        height: 100%;
+    }
+    #ContactLink{
+        margin-top: 10%;
+    }
+    #EmailMe{
+        margin-top: 5%;
+    }
+    #Contact > p{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
